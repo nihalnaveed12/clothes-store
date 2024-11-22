@@ -22,7 +22,6 @@ import {
 import { RootState } from "@/store";
 import { useSelector } from "react-redux";
 
-
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const cartItems = useSelector((state: RootState) => state.cart.items);
@@ -145,47 +144,49 @@ export default function Navbar() {
         </div>
       </nav>
       {menuOpen && (
-          <div className="md:hidden flex flex-col gap-6 p-4 shadow-md">
-            <ul>
-              {navItems.map((nav, index) => (
-                <li
-                  key={index}
-                  className="mt-4 text-zinc-700 hover:text-zinc-950 cursor-pointer"
-                >
-                  <Link href={nav.href} className="">
-                    {nav.name}
-                  </Link>
-                </li>
-              ))}
-              <li className="mt-4 text-zinc-700 hover:text-zinc-950 cursor-pointer">
-                <details>
-                  <summary className="list-none flex items-center">
-                    <Link href="/collections">
-                    
-                    Collections
-                    </Link>
-                    <ChevronDown className="ml-1 h-4 w-4" />
-                  </summary>
-                  <ul className="pl-4 mt-2">
-                    {collections.map((collection) => (
-                      <li key={collection.name} className="mt-2">
-                        <Link href={collection.href} className="text-sm">
-                          {collection.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
+        <div className="md:hidden flex flex-col gap-6 p-4 shadow-md">
+          <ul>
+            {navItems.map((nav, index) => (
+              <li
+                key={index}
+                className="mt-4 text-zinc-700 hover:text-zinc-950 cursor-pointer"
+              >
+                <Link href={nav.href} className="">
+                  {nav.name}
+                </Link>
               </li>
-            </ul>
-            <form className="relative" onSubmit={handleSearch}>
-              <Input
-                placeholder="Search for products"
-                className="bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all duration-200"
-              />
+            ))}
+            <li className="mt-4 text-zinc-700 hover:text-zinc-950 cursor-pointer">
+              <details>
+                <summary className="list-none flex items-center">
+                  <Link href="/collections">Collections</Link>
+                  <ChevronDown className="ml-1 h-4 w-4" />
+                </summary>
+                <ul className="pl-4 mt-2">
+                  {collections.map((collection) => (
+                    <li key={collection.name} className="mt-2">
+                      <Link href={collection.href} className="text-sm">
+                        {collection.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </details>
+            </li>
+          </ul>
+          <form className="relative" onSubmit={handleSearch}>
+            <Input
+            type="text"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+              placeholder="Search for products"
+              className="bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all duration-200"
+            />
+            
               <Search className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
-            </form>
-          </div>
+           
+          </form>
+        </div>
       )}
     </header>
   );
