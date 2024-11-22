@@ -176,7 +176,7 @@ export default function Navbar() {
           </ul>
           <form className="relative" onSubmit={handleSearch}>
             <Input
-              type="submit"
+              type="search"
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search for products"
