@@ -178,13 +178,13 @@ export default function Navbar() {
                 </details>
               </li>
             </ul>
-            <div className="relative">
+            <form className="relative" onSubmit={handleSearch}>
               <Input
                 placeholder="Search for products"
                 className="bg-gray-100 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:bg-white transition-all duration-200"
               />
               <Search className="absolute left-3 top-2 h-5 w-5 text-gray-400" />
-            </div>
+            </form>
           </div>
       )}
     </header>
