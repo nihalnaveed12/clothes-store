@@ -160,7 +160,10 @@ export default function Navbar() {
               <li className="mt-4 text-zinc-700 hover:text-zinc-950 cursor-pointer">
                 <details>
                   <summary className="list-none flex items-center">
+                    <Link href="/collections">
+                    
                     Collections
+                    </Link>
                     <ChevronDown className="ml-1 h-4 w-4" />
                   </summary>
                   <ul className="pl-4 mt-2">
